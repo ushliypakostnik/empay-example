@@ -26,10 +26,10 @@ body {
   backface-visibility: hidden;
 
   // Normal text
-  @include text($font-family__sans, $font-size--small, $font-weight__sans__regular);
+  @include text($font-size--small, $font-weight__regular);
 
   ::selection {
-    background: fade-out($colors__second, $fade * 3);
+    background: fade-out($colors__primary, $fade * 3);
   }
 }
 

@@ -10,3 +10,31 @@
 @import "./project/_widgets.scss";
 
 // External libraries customization
+
+// Imports files
+$fonts__path--root: "../assets/fonts/";
+
+@font-face {
+  font-family: "SuisseLight";
+  src: url("#{$fonts__path--root}SuisseIntl-Light.otf");
+}
+
+@font-face {
+  font-family: "SuisseRegular";
+  src: url("#{$fonts__path--root}SuisseIntl-Regular.otf");
+}
+
+@font-face {
+  font-family: "SuisseMedium";
+  src: url("#{$fonts__path--root}SuisseIntl-Medium.otf");
+}
+
+@font-face {
+  font-family: "SuisseSemibold";
+  src: url("#{$fonts__path--root}SuisseIntl-SemiBold.otf");
+}
+
+@font-face {
+  font-family: "SuisseBold";
+  src: url("#{$fonts__path--root}SuisseIntl-Bold.otf");
+}

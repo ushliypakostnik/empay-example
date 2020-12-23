@@ -5,19 +5,34 @@ const ScreenHelper = (() => {
   /* eslint-disable no-unused-vars */
   const NAME = 'ScreenHelper';
 
-  const TABLET = DESIGN.BREAKPOINTS.tablet;
-  const DESKTOP = DESIGN.BREAKPOINTS.desktop;
+  const MIN = DESIGN.BREAKPOINTS.min;
+  const XS = DESIGN.BREAKPOINTS.xs;
+  const SM = DESIGN.BREAKPOINTS.sm;
+  const MD = DESIGN.BREAKPOINTS.md;
+  const LG = DESIGN.BREAKPOINTS.lg;
 
-  const isMobile = () => {
-    return window.matchMedia(`(max-width: ${TABLET - 1}px)`).matches;
+  const isXS = () => {
+    return window.matchMedia(`(max-width: ${SM - 1}px)`).matches;
   };
 
-  const isTablet = () => {
-    return window.matchMedia(`(min-width: ${TABLET}px) and (max-width: ${DESKTOP - 1}px)`).matches;
+  const isSM = () => {
+    return window.matchMedia(`(min-width: ${SM}px) and (max-width: ${MD - 1}px)`).matches;
   };
 
-  const isDesktop = () => {
-    return window.matchMedia(`(min-width: ${DESKTOP}px)`).matches;
+  const isGadgets = () => {
+    return window.matchMedia(`(max-width: ${MD - 1}px)`).matches;
+  };
+
+  const isNotGadgets = () => {
+    return window.matchMedia(`(min-width: ${MD}px)`).matches;
+  };
+
+  const isMD = () => {
+    return window.matchMedia(`(min-width: ${MD}px) and (max-width: ${LG - 1}px)`).matches;
+  };
+
+  const isLG = () => {
+    return window.matchMedia(`(min-width: ${LG}px)`).matches;
   };
 
   const getOrientation = () => {
@@ -41,9 +56,17 @@ const ScreenHelper = (() => {
   };
 
   return {
-    isMobile,
-    isTablet,
-    isDesktop,
+    MIN,
+    XS,
+    SM,
+    MD,
+    LG,
+    isXS,
+    isSM,
+    isGadgets,
+    isNotGadgets,
+    isMD,
+    isLG,
     getOrientation,
     getPixelRatio,
     getScrollbarWidth,

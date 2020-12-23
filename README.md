@@ -1,7 +1,7 @@
 Vue cli based frontend boilerplate
 ==================================
 
-Vuie cli based frontend PWA example with localization and themezation
+Vue cli based frontend PWA example with localization
 
 Deploy
 ------
@@ -13,7 +13,7 @@ Deploy
 Запуск сервера для разработки
 -----------------------------
 
-    $ npm start
+    $ npm run serve
 
     http://localhost:3000/
 
@@ -22,7 +22,7 @@ Cборка
 
 Сборка проекта в продакшен, в папку /build
 
-    $ npm build
+    $ npm run build
 
 Тесты
 -----

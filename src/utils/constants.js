@@ -29,8 +29,11 @@ export const AUTO_THEME = theme || THEMES[1].name;
 
 export const DESIGN = {
   BREAKPOINTS: {
-    tablet: 768,
-    desktop: 1240,
+    min: 320,
+    xs: 375,
+    sm: 768,
+    md: 1217,
+    lg: 1697,
   },
 };
 

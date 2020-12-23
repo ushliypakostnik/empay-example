@@ -16,13 +16,31 @@
 }
 
 %container {
-  padding-left: $gutter;
-  padding-right: $gutter;
-
-  @include xs {
-    padding-left: $gutter / 2;
-    padding-right: $gutter / 2;
+  @include lg {
+    max-width: $container-width__lg;
   }
+
+  @include md {
+    max-width: $container-width__md;
+  }
+
+  @include gadgets {
+    width: 100%;
+  }
+
+  @include sm {
+    padding-left: $container__gutter--tablet;
+    padding-right: $container__gutter--tablet;
+  }
+  @include xs {
+    padding-left: $container__gutter--mobile;
+    padding-right: $container__gutter--mobile;
+  }
+
+}
+
+%box-shadows {
+  box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size $shadows__stretch $colors__shadows;
 }
 
 %overlay {

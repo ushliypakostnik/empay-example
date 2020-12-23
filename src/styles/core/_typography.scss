@@ -2,6 +2,7 @@
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 
+
 // Typographic Variables
 //////////////////////////////////////////////////////
 
@@ -10,6 +11,18 @@ $line-height--base: 1.428571429;
 $normal-letter-spacing: normal;
 
 // Guide
+
+$font-family--light: "SuisseLight";
+$font-family--regular: "SuisseRegular";
+$font-family--medium: "SuisseMedium";
+$font-family--semibold: "SuisseSemibold";
+$font-family--bold: "SuisseBold";
+
+$font-weight--light: 300;
+$font-weight--regular: 400;
+$font-weight--medium: 500;
+$font-weight--semibold: 600;
+$font-weight--bold: 700;
 
 $font-size--base: 16px;
 $font-size__coefficient--large: 4;
@@ -25,25 +38,35 @@ $font-size--xsmall: round($font-size--base * $font-size__coefficient--xsmall); /
 $line-height--computed: round($font-size--base * $line-height--base);
 $line-height--large: floor($line-height--computed * $font-size__coefficient--large); // 34px
 $line-height--normal: floor($line-height--computed * $font-size__coefficient--normal); // 26px
-$line-height--small: floor($line-height--computed * $font-size__coefficient--small); // 20px
+$line-height--small: floor($line-height--computed * $font-size__coefficient--small * 0.8); // 18px
 $line-height--xsmall: floor($line-height--computed * $font-size__coefficient--xsmall); // 18px
 
-// stylelint-disable value-keyword-case
-$font-family__sans: "Open Sans", Helvetica, Arial, sans-serif;
-// stylelint-enable value-keyword-case
-$font-weight__sans__regular: 400;
-$font-weight__sans__bold: 700;
 
 // Universal Typographic Mixin
 //////////////////////////////////////////////////////
 
 // We use one, only one, Karl, a universal admixture for all cases !!!!!!!!!!
 
-@mixin text($font-family, $font-size, $font-weight) {
-  font-family: $font-family;
+@mixin text($font-size, $font-weight, $letter-spacing: $normal-letter-spacing) {
   font-size: $font-size;
-  font-weight: $font-weight;
-  letter-spacing: $normal-letter-spacing;
+  letter-spacing: $letter-spacing;
+
+  @if $font-weight == $font-weight--light {
+    font-family: $font-family--light;
+    font-weight: $font-weight--light;
+  } @else if $font-weight == $font-weight--regular {
+    font-family: $font-family--regular;
+    font-weight: $font-weight--regular;
+  } @else if $font-weight == $font-weight--medium {
+    font-family: $font-family--medium;
+    font-weight: $font-weight--medium;
+  } @else if $font-weight == $font-weight--semibold {
+    font-family: $font-family--semibold;
+    font-weight: $font-weight--semibold;
+  } @else if $font-weight == $font-weight--bold {
+    font-family: $font-family--bold;
+    font-weight: $font-weight--bold;
+  }
 
   @if $font-size == $font-size--large {
     line-height: $line-height--large;
@@ -61,43 +84,6 @@ $font-weight__sans__bold: 700;
 // Base Typographic
 //////////////////////////////////////////////////////
 
-p {
-  margin-bottom: $gutter / 2;
-  @include text($font-family__sans, $font-size--small, $font-weight__sans__regular);
-}
-
-h1 {
-  @include text($font-family__sans, $font-size--large, $font-weight__sans__bold);
-
-  @include xs {
-    @include text($font-family__sans, $font-size--normal, $font-weight__sans__bold);
-  }
-}
-
-h2 {
-  @include text($font-family__sans, $font-size--large, $font-weight__sans__regular);
-
-  @include xs {
-    @include text($font-family__sans, $font-size--normal, $font-weight__sans__regular);
-  }
-}
-
-h3 {
-  @include text($font-family__sans, $font-size--normal, $font-weight__sans__bold);
-}
-
-h4 {
-  @include text($font-family__sans, $font-size--small, $font-weight__sans__regular);
-}
-
-h5 {
-  @include text($font-family__sans, $font-size--xsmall, $font-weight__sans__bold);
-}
-
-h6 {
-  @include text($font-family__sans, $font-size--xsmall, $font-weight__sans__regular);
-}
-
 strong {
-  font-weight: $font-weight__sans__bold;
+  font-weight: $font-weight__bold;
 }

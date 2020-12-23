@@ -1,27 +1,43 @@
 <template>
   <div class="header">
-    <slot />
+    <div class="container header__container">
+      <div class="header__left">
+        <Logo />
+      </div>
+      <div class="header__right">
+        <slot name="right" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import Logo from '@/components/Layout/Logo.vue';
+
 export default {
   name: 'Header',
+
+  components: {
+    Logo,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-  @import "@/styles/_stylebase.scss";
+@import "@/styles/_stylebase.scss";
 
-  .header {
-    height: $header__height;
-    text-align: center;
-    width: 100%;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    padding-top: $gutter / 2;
-    padding-bottom: $gutter / 2;
+.header {
+  @extend %box-shadows;
+  height: $header__height;
+  width: 100%;
+  position: relative;
+  z-index: $layouts__content + 200;
+
+  &__container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
+}
 </style>

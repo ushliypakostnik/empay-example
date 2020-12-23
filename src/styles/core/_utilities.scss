@@ -26,6 +26,17 @@
   width: 100%;
 }
 
+.link {
+  @include text($font-size--small, $font-weight--semibold);
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    color: $colors__text;
+  }
+}
+
 // nowrap spans
 .nowrap {
   white-space: nowrap;

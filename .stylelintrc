@@ -24,7 +24,7 @@
     "color-no-invalid-hex": [true, {
       "message": "Правильные значения HEX цветов"
     }],
-    "font-family-name-quotes": ["always-where-recommended", {
+    "font-family-name-quotes": ["always-unless-keyword", {
       "message": "Название шрифтов следует брать в кавычки"
     }],
     "font-weight-notation": ["numeric", {

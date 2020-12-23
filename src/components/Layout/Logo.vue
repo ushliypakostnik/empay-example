@@ -1,11 +1,5 @@
 <template>
-  <div class="logo">
-    <img
-      src="../../assets/images/logo.png"
-      width="60px"
-      alt="logo"
-    >
-  </div>
+  <div class="logo" />
 </template>
 
 <script>
@@ -14,12 +8,12 @@ export default {
 };
 </script>
 
-<style scoped>
-  .logo {
-    text-align: center;
+<style lang="scss" scoped>
+@import "@/styles/_stylebase.scss";
 
-    h1 {
-      margin-top: 0;
-    }
-  }
+.logo {
+  background: url("#{$images__path--root}logo.svg") no-repeat center center;
+  background-size: 100%;
+  @include size(96px, 20px);
+}
 </style>

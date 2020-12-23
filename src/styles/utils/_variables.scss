@@ -3,13 +3,15 @@
 //////////////////////////////////////////////////////
 
 // Paths
-$images__path--root: "assets/images/";
+$images__path--root: "../../assets/images/";
 
 
 // Sizes and rounding
 //////////////////////////////////////////////////////
 
 $gutter: 20px;
+$container__gutter--tablet: $gutter * 2;
+$container__gutter--mobile: 24px;
 
 $border-width: 2px;
 
@@ -40,7 +42,7 @@ $inputs__height: $controls__height;
 
 $loader__size--default: 100px;
 
-$header__height: 70px;
+$header__height: 80px;
 
 
 // Layouts
@@ -59,8 +61,8 @@ $fade: 0.2;
 $fade--percent: 8%;
 
 $shadows__coords-x: 0;
-$shadows__coords-y: 0;
-$shadows__size: 10px;
+$shadows__coords-y: 1px;
+$shadows__size: 2px;
 $shadows__stretch: 0;
 
 $transition-duration: 0.2s;
@@ -78,12 +80,15 @@ $animation-duration: $transition-duration * 3;
 $colors__white: #fff;
 $colors__black: #000;
 
-$colors__primary: #b0b2f0;
-$colors__second: #d930aa;
+$colors__primary: #ff7d5a;
 
 
 // Grays
-$colors__grays--lighter: #fafafa;
+$colors__greys--lighter: #fafafa;
+$colors__greys--test: #dfdfdf;
+$colors__grey: #858585;
+
+$colors__text: #2c2c2c;
 
 
 // Links
@@ -93,10 +98,10 @@ $colors__link--hover: darken(#44529c, $fade);
 
 // Borders and shadows
 
-$colors__shadows: $colors__black;
+$colors__shadows: rgba(0, 0, 0, 0.18);
 
-$colors__border: $colors__grays--lighter !default;
-$colors__placeholder: $colors__border !default;
+$colors__border: $colors__greys--lighter;
+$colors__placeholder: $colors__border;
 
 
 // Breackpoints and containers
@@ -106,17 +111,20 @@ $colors__placeholder: $colors__border !default;
 $breakpoints__min:                 320px;
 
 // Extra small screen / XS / phone
-$breakpoints__xs:                  359px;
+$breakpoints__xs:                  375px;
 
 // Small screen / SM / tablet
 $breakpoints__sm:                  768px;
 
-// Medium screen / MD desktop / нетбуки типо чтоле
-$breakpoints__md:                  1025px;
+// Medium screens MD and LG
+$breakpoints__md:                  1217px;
 
-// Large screen / LG desktop / небольшие экраны - ноуты
-$breakpoints__lg:                  1240px;
+// Large screen / Desktops
+$breakpoints__lg:                  1697px;
 
 $breakpoints__xs_max:              ($breakpoints__sm - 1);
 $breakpoints__sm_max:              ($breakpoints__md - 1);
 $breakpoints__md_max:              ($breakpoints__lg - 1);
+
+$container-width__md: 1040px;
+$container-width__lg: 1600px;
