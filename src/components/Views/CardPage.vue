@@ -88,7 +88,7 @@ export default {
       } else if (ScreenHelper.isSM()) {
         this.test = `<span>SM-типоразмер:</span> на экранах больше ${ScreenHelper.SM}px, контейнер резиновый с отступом 40px по краям.`;
       } else {
-        this.test = '<span>XS-типоразмер:</span> на мобильных экранах, контейнер резиновый с отступом 24px по краям.';
+        this.test = `<span>XS-типоразмер:</span> на мобильных экранах до  ${ScreenHelper.SM - 1}px, контейнер резиновый с отступом 24px по краям.`;
       }
     },
   },
