@@ -82,9 +82,9 @@ export default {
   methods: {
     checkTest() {
       if (ScreenHelper.isLG()) {
-        this.test = `<span>LG-типоразмер:</span> на экранах больше ${ScreenHelper.LG}px, контейнер 1600px шириной.`;
+        this.test = `<span>LG-типоразмер:</span> на экранах больше ${ScreenHelper.LG}px, фиксированный контейнер 1600px шириной.`;
       } else if (ScreenHelper.isMD()) {
-        this.test = `<span>MD-типоразмер:</span> на экранах больше ${ScreenHelper.MD}px, контейнер 1217px шириной.`;
+        this.test = `<span>MD-типоразмер:</span> на экранах больше ${ScreenHelper.MD}px, фиксированный контейнер 1040px шириной.`;
       } else if (ScreenHelper.isSM()) {
         this.test = `<span>SM-типоразмер:</span> на экранах больше ${ScreenHelper.SM}px, контейнер резиновый с отступом 40px по краям.`;
       } else {
