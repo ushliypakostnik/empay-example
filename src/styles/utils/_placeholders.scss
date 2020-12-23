@@ -21,7 +21,9 @@
   }
 
   @include md {
-    max-width: $container-width__md;
+    width: 100%;
+    padding-left: $container__gutter--md;
+    padding-right: $container__gutter--md;
   }
 
   @include gadgets {
@@ -29,14 +31,13 @@
   }
 
   @include sm {
-    padding-left: $container__gutter--tablet;
-    padding-right: $container__gutter--tablet;
+    padding-left: $container__gutter--sm;
+    padding-right: $container__gutter--sm;
   }
   @include xs {
-    padding-left: $container__gutter--mobile;
-    padding-right: $container__gutter--mobile;
+    padding-left: $container__gutter--xs;
+    padding-right: $container__gutter--xs;
   }
-
 }
 
 %box-shadows {

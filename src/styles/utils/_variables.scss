@@ -10,8 +10,9 @@ $images__path--root: "../../assets/images/";
 //////////////////////////////////////////////////////
 
 $gutter: 20px;
-$container__gutter--tablet: $gutter * 2;
-$container__gutter--mobile: 24px;
+$container__gutter--md: $gutter * 4;
+$container__gutter--sm: $gutter * 2;
+$container__gutter--xs: 24px;
 
 $border-width: 2px;
 
