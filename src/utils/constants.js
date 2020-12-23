@@ -33,7 +33,7 @@ export const DESIGN = {
     xs: 375,
     sm: 768,
     md: 1217,
-    lg: 1697,
+    lg: 1777,
   },
 };
 

@@ -84,7 +84,7 @@ export default {
       if (ScreenHelper.isLG()) {
         this.test = `<span>LG-типоразмер:</span> на экранах больше ${ScreenHelper.LG}px, фиксированный контейнер 1600px шириной.`;
       } else if (ScreenHelper.isMD()) {
-        this.test = `<span>MD-типоразмер:</span> на экранах больше ${ScreenHelper.MD}px, фиксированный контейнер 1040px шириной.`;
+        this.test = `<span>MD-типоразмер:</span> на экранах больше ${ScreenHelper.MD}px, контейнер резиновый с отступом 80px по краям.`;
       } else if (ScreenHelper.isSM()) {
         this.test = `<span>SM-типоразмер:</span> на экранах больше ${ScreenHelper.SM}px, контейнер резиновый с отступом 40px по краям.`;
       } else {
@@ -99,7 +99,7 @@ export default {
   @import "@/styles/_stylebase.scss";
 
   $gallery__height--lg: 574px;
-  $gallery__height--md: 396px;
+  $gallery__height--md: 32.6vw;
   $gallery__height--sm: 32.6vw;
   $gallery__height--xs: 133.155vw;
 
