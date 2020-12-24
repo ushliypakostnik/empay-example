@@ -14,17 +14,18 @@
 // Elements
 //////////////////////////////////////////////////////
 
-// Fixed container
+// Main container
 .container {
   @extend %container;
   margin: 0 auto;
+
+  &--with-slider {
+    @include gadgets {
+      padding: 0;
+    }
+  }
 }
 
-// Rubber Container
-.container-fluid {
-  @extend %container;
-  width: 100%;
-}
 
 .link {
   @include text($font-size--small, $font-weight--semibold);
@@ -33,7 +34,9 @@
   &:hover,
   &:active,
   &:focus {
+    cursor: pointer;
     color: $colors__text;
+    outline: none;
   }
 }
 
@@ -52,22 +55,40 @@
 
 // stylelint-disable declaration-no-important
 .visible {
-  &--desktop,
+  &--lg,
+  &--md,
+  &--not-gadgets,
   &--gadgets,
-  &--tablet,
-  &--mobile,
-  &--desktop--inline-block,
+  &--sm,
+  &--xs,
+  &--lg--inline-block,
+  &--md--inline-block,
+  &--not-gadgets--inline-block,
   &--gadgets--inline-block,
-  &--tablet-inline-block,
-  &--mobile--inline-block,
-  &--desktop--inline,
+  &--sm-inline-block,
+  &--xs--inline-block,
+  &--lg--inline,
+  &--md--inline,
+  &--not-gadgets--inline,
   &--gadgets--inline,
-  &--tablet--inline,
-  &--mobile--inline {
+  &--sm--inline,
+  &--xs--inline {
     display: none !important;
   }
 
-  &--desktop {
+  &--lg {
+    @include lg {
+      display: block !important;
+    }
+  }
+
+  &--md {
+    @include md {
+      display: block !important;
+    }
+  }
+
+  &--not-gadgets {
     @include not-gadgets {
       display: block !important;
     }
@@ -79,19 +100,31 @@
     }
   }
 
-  &--tablet {
+  &--sm {
     @include sm {
       display: block !important;
     }
   }
 
-  &--mobile {
+  &--xs {
     @include xs {
       display: block !important;
     }
   }
 
-  &--desktop--inline-block {
+  &--lg--inline-block {
+    @include lg {
+      display: inline-block !important;
+    }
+  }
+
+  &--md--inline-block {
+    @include md {
+      display: inline-block !important;
+    }
+  }
+
+  &--not-gadgets--inline-block {
     @include not-gadgets {
       display: inline-block !important;
     }
@@ -103,19 +136,31 @@
     }
   }
 
-  &--tablet--inline-block {
+  &--sm--inline-block {
     @include sm {
       display: inline-block !important;
     }
   }
 
-  &--mobile--inline-block {
+  &--xs--inline-block {
     @include xs {
       display: inline-block !important;
     }
   }
 
-  &--desktop--inline {
+  &--lg--inline {
+    @include lg {
+      display: inline !important;
+    }
+  }
+
+  &--md--inline {
+    @include md {
+      display: inline !important;
+    }
+  }
+
+  &--not-gadgets--inline {
     @include not-gadgets {
       display: inline !important;
     }
@@ -127,13 +172,13 @@
     }
   }
 
-  &--tablet--inline {
+  &--sm--inline {
     @include sm {
       display: inline !important;
     }
   }
 
-  &--mobile--inline {
+  &--xs--inline {
     @include xs {
       display: inline !important;
     }
@@ -141,7 +186,19 @@
 }
 
 .hidden {
-  &--desktop {
+  &--lg {
+    @include lg {
+      display: none !important;
+    }
+  }
+
+  &--md {
+    @include md {
+      display: none !important;
+    }
+  }
+
+  &--not-gadgets {
     @include not-gadgets {
       display: none !important;
     }
@@ -153,13 +210,13 @@
     }
   }
 
-  &--tablet {
+  &--sm {
     @include sm {
       display: none !important;
     }
   }
 
-  &--mobile {
+  &--xs {
     @include xs {
       display: none !important;
     }

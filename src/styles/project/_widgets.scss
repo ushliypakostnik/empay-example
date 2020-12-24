@@ -2,38 +2,26 @@
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 
-/*
-.switch {
-  display: inline-block;
-  background: $colors__white;
-  border: 1px solid $colors__border;
-  border-radius: $border-radius__small;
-  white-space: nowrap;
-  // следующая строчка не заработает без флага !important !!!
-  padding: ($gutter / 4) ($gutter / 2) !important; // перекрываем base в хэшах
-
-  > li {
+.section {
+  &__title {
     display: inline-block;
-    @include text($font-family__sans, $font-size--normal, $font-weight__sans__regular);
+    @include text($font-size--normal, $font-weight--semibold);
+  }
 
-    a {
-      @include link__color($colors__primary, darken($colors__primary, $fade--percent));
-    }
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 26px;
 
-    // слэш между вариантами
-    &:not(:last-child) {
-      &:after {
-        margin-left: $gutter / 4;
-        margin-right: $gutter / 4;
-        text-align: center;
-        content: " / ";
+    .link {
+      text-decoration: underline;
+      display: inline-block;
+
+      & + .link {
+        margin-left: $gutter;
       }
     }
   }
-
-  // отступ между переключателями
-  & + .switch {
-    margin-left: $gutter;
-  }
 }
-*/
+

@@ -26,20 +26,26 @@ $font-weight--bold: 700;
 
 $font-size--base: 16px;
 $font-size__coefficient--large: 4;
-$font-size__coefficient--normal: 1.5;
+$font-size__coefficient--medium: 2.5;
+$font-size__coefficient--normal: 1.35;
+$font-size__coefficient--ssmall: 1.15;
 $font-size__coefficient--small: 1;
-$font-size__coefficient--xsmall: 0.9;
+$font-size__coefficient--xsmall: 0.75;
 
 $font-size--large: round($font-size--base * $font-size__coefficient--large); // 24px
-$font-size--normal: round($font-size--base * $font-size__coefficient--normal); // 18px
+$font-size--medium: round($font-size--base * $font-size__coefficient--medium); // 28px
+$font-size--normal: round($font-size--base * $font-size__coefficient--normal); // 22px
+$font-size--ssmall: round($font-size--base * $font-size__coefficient--ssmall); // 18px
 $font-size--small: round($font-size--base * $font-size__coefficient--small); // 14px
 $font-size--xsmall: round($font-size--base * $font-size__coefficient--xsmall); // 13px
 
 $line-height--computed: round($font-size--base * $line-height--base);
 $line-height--large: floor($line-height--computed * $font-size__coefficient--large); // 34px
-$line-height--normal: floor($line-height--computed * $font-size__coefficient--normal); // 26px
+$line-height--medium: floor($line-height--computed * $font-size__coefficient--medium); // 32px
+$line-height--normal: floor($line-height--computed * $font-size__coefficient--normal * 0.85); // 26px
+$line-height--ssmall: floor($line-height--computed * $font-size__coefficient--ssmall * 0.85); // 22px
 $line-height--small: floor($line-height--computed * $font-size__coefficient--small * 0.8); // 18px
-$line-height--xsmall: floor($line-height--computed * $font-size__coefficient--xsmall); // 18px
+$line-height--xsmall: floor($line-height--computed * $font-size__coefficient--xsmall * 1.1); // 18px
 
 
 // Universal Typographic Mixin
@@ -70,8 +76,12 @@ $line-height--xsmall: floor($line-height--computed * $font-size__coefficient--xs
 
   @if $font-size == $font-size--large {
     line-height: $line-height--large;
+  } @if $font-size == $font-size--medium {
+    line-height: $line-height--medium;
   } @else if $font-size == $font-size--normal {
     line-height: $line-height--normal;
+  } @else if $font-size == $font-size--ssmall {
+    line-height: $line-height--ssmall;
   } @else if $font-size == $font-size--small {
     line-height: $line-height--small;
   } @else if $font-size == $font-size--xsmall {

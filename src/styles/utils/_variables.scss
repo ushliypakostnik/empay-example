@@ -10,9 +10,10 @@ $images__path--root: "../../assets/images/";
 //////////////////////////////////////////////////////
 
 $gutter: 20px;
+$gutter2: 24px;
 $container__gutter--md: $gutter * 4;
 $container__gutter--sm: $gutter * 2;
-$container__gutter--xs: 24px;
+$container__gutter--xs: $gutter2;
 
 $border-width: 2px;
 
@@ -85,7 +86,7 @@ $colors__primary: #ff7d5a;
 
 
 // Grays
-$colors__greys--lighter: #fafafa;
+$colors__greys--lighter: #faf9f7;
 $colors__greys--test: #dfdfdf;
 $colors__grey: #858585;
 
@@ -101,7 +102,7 @@ $colors__link--hover: darken(#44529c, $fade);
 
 $colors__shadows: rgba(0, 0, 0, 0.18);
 
-$colors__border: $colors__greys--lighter;
+$colors__border: #f1eee9;
 $colors__placeholder: $colors__border;
 
 

@@ -2,19 +2,6 @@
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 
-%background {
-  &--black {
-    background: $colors__black
-  }
-
-  &--white {background: $colors__white}
-}
-
-%scroll-optimization {
-  transform: translate3d(0, 0, 0);
-  will-change: scroll-position;
-}
-
 %container {
   @include lg {
     max-width: $container-width__lg;
@@ -26,15 +13,13 @@
     padding-right: $container__gutter--md;
   }
 
-  @include gadgets {
-    width: 100%;
-  }
-
   @include sm {
+    width: 100%;
     padding-left: $container__gutter--sm;
     padding-right: $container__gutter--sm;
   }
   @include xs {
+    width: 100%;
     padding-left: $container__gutter--xs;
     padding-right: $container__gutter--xs;
   }
@@ -42,6 +27,38 @@
 
 %box-shadows {
   box-shadow: $shadows__coords-x $shadows__coords-y $shadows__size $shadows__stretch $colors__shadows;
+}
+
+%test-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $colors__greys--test;
+  color: $colors__white;
+}
+
+%test-card {
+  border: 1px solid $colors__border;
+  height: 100%;
+}
+
+%header {
+  @extend %box-shadows;
+  height: $header__height;
+  width: 100%;
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+%section {
+  &__margin {
+    margin: ($gutter2 * 2) 0;
+  }
 }
 
 %overlay {
@@ -69,31 +86,4 @@
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-}
-
-// Classic lists
-%list-style {
-  list-style-type: disc;
-  padding-left: $gutter;
-  margin-bottom: $gutter / 2;
-
-  > li {
-    margin-bottom: round($gutter / 4);
-  }
-}
-
-// Quotes
-%quote-content {
-  &:before {
-    content: open-quote;
-  }
-
-  &:after {
-    content: close-quote;
-  }
-
-  &:before,
-  &:after {
-    color: inherit;
-  }
 }

@@ -1,23 +1,24 @@
 <template>
   <Layout class="page404">
-    <div class="container">
-      <Logo />
-      <h1>404</h1>
-      <h3>{{ $t('page404.text') }}</h3>
-    </div>
+    <template #body>
+      <div class="container">
+        <div>
+          <h1>404</h1>
+          <h3>{{ $t('page404.text') }}</h3>
+        </div>
+      </div>
+    </template>
   </Layout>
 </template>
 
 <script>
 import Layout from '@/components/Layout/Layout.vue';
-import Logo from '@/components/Layout/Logo.vue';
 
 export default {
   name: 'NotFound',
 
   components: {
     Layout,
-    Logo,
   },
 };
 </script>
@@ -26,6 +27,17 @@ export default {
   @import "@/styles/_stylebase.scss";
 
   .page404 {
+    .container {
+      height: 20vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > div {
+        text-align: center;
+      }
+    }
+
     h1 {
       color: $colors__primary;
       margin: 0;

@@ -1,11 +1,15 @@
 import Vue from 'vue';
 
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+
 import App from '@/App.vue';
 import router from '@/router';
 import store from '@/store';
 import '@/registerServiceWorker';
 
 import i18n from '@/utils/i18n';
+
+Vue.use(VueAwesomeSwiper);
 
 Vue.config.productionTip = false;
 

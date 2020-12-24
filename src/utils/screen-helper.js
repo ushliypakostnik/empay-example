@@ -55,6 +55,15 @@ const ScreenHelper = (() => {
     return bw2 - bw1;
   };
 
+  const getScrollProgress = () => {
+    const offset = window.pageYOffset || document.documentElement.scrollTop;
+    const windowHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const progress = Math.floor((offset / windowHeight) * 100);
+    return isNaN(progress) ? 0 : progress;
+  };
+
   return {
     MIN,
     XS,
@@ -70,6 +79,7 @@ const ScreenHelper = (() => {
     getOrientation,
     getPixelRatio,
     getScrollbarWidth,
+    getScrollProgress,
   };
 })();
 

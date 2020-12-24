@@ -1,6 +1,9 @@
 <template>
-  <div class="header">
-    <div class="container header__container">
+  <header
+    role="banner"
+    class="header"
+  >
+    <div class="container">
       <div class="header__left">
         <Logo />
       </div>
@@ -8,7 +11,7 @@
         <slot name="right" />
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -27,17 +30,6 @@ export default {
 @import "@/styles/_stylebase.scss";
 
 .header {
-  @extend %box-shadows;
-  height: $header__height;
-  width: 100%;
-  position: relative;
-  z-index: $layouts__content + 200;
-
-  &__container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  @extend %header;
 }
 </style>
