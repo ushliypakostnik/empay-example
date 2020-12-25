@@ -547,3 +547,8 @@ button.swiper-pagination-bullet {
     padding-left: $gutter2;
   }
 }
+
+.swiper-button-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

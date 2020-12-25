@@ -3,8 +3,19 @@
     <template #body>
       <div
         class="card-page__test"
-        v-html="test"
-      />
+        :class="{ 'card-page__test--hidden': !isTestVisible }"
+      >
+        <div
+          v-if="isTestVisible"
+          v-html="test"
+          class="card-page__test-text"
+        />
+        <a
+          href="#"
+          @click.prevent="toggleTest"
+        ><Close /></a>
+      </div>
+
       <Subheader class="hidden--gadgets">
         <template #left>
           Дополнительный хедер:
@@ -13,6 +24,7 @@
             class="link"
           >Контролы</a>
         </template>
+
         <template #right>
           <SidebarMin
             isInSubheader
@@ -27,6 +39,7 @@
           </SidebarMin>
         </template>
       </Subheader>
+
       <SidebarMin class="visible--gadgets">
         <template #left>
           Сайдбар на гаджетах:
@@ -36,6 +49,7 @@
           >Контролы</a>
         </template>
       </SidebarMin>
+
       <section class="card-page__section--1">
         <div class="container">
           <section class="card-page__section--1-left">
@@ -52,6 +66,7 @@
           </section>
         </div>
       </section>
+
       <section class="card-page__section--2">
         <div class="container">
           <section class="card-page__section--2-gallery">
@@ -63,6 +78,7 @@
           </section>
         </div>
       </section>
+
       <section class="card-page__section--3">
         <div class="container">
           <div class="card-page__wrapper">
@@ -77,11 +93,13 @@
           </div>
         </div>
       </section>
+
       <section class="card-page__section--7 hidden--lg">
         <div class="container">
           <div class="card-page__test-block">Content 2</div>
         </div>
       </section>
+
       <section class="card-page__section--8">
         <div class="container">
           <div class="section__header">
@@ -112,6 +130,7 @@
           </div>
         </div>
       </section>
+
       <section class="card-page__section--9">
         <div class="container">
           <div class="section__header">
@@ -133,10 +152,78 @@
               <div
                 navigation
                 class="swiper-slide"
+                v-for="friend in mock"
+                :key="friend.id"
+              >
+                <FriendCard :friend="friend" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-page__section--10">
+        <div class="container">
+          <div class="card-page__test-block">Content 3</div>
+        </div>
+      </section>
+
+      <section class="card-page__section--11">
+        <div class="container">
+          <div class="section__header">
+            <div class="section__header-left">
+              <div class="section__title">Заголовок 3</div>
+            </div>
+            <div class="section__header-right">
+              <div class="card-page__slider--3-prev link">Prev</div>
+              <div class="card-page__slider--3-next link">Next</div>
+            </div>
+          </div>
+        </div>
+        <div class="container container--with-slider">
+          <div
+            v-swiper:mySwiper3="swiper3Option"
+            class="card-page__slider--3"
+          >
+            <div class="swiper-wrapper">
+              <div
+                navigation
+                class="swiper-slide"
                 v-for="post in mock"
                 :key="post.id"
               >
                 <NewsCard :post="post" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-page__section--12">
+        <div class="container">
+          <div class="section__header">
+            <div class="section__header-left">
+              <div class="section__title">Заголовок 4</div>
+            </div>
+            <div class="section__header-right">
+              <div class="card-page__slider--4-prev link">Prev</div>
+              <div class="card-page__slider--4-next link">Next</div>
+            </div>
+          </div>
+        </div>
+        <div class="container container--with-slider">
+          <div
+            v-swiper:mySwiper4="swiper4Option"
+            class="card-page__slider--4"
+          >
+            <div class="swiper-wrapper">
+              <div
+                navigation
+                class="swiper-slide"
+                v-for="project in mock"
+                :key="project.id"
+              >
+                <ProjectCard :project="project" />
               </div>
             </div>
           </div>
@@ -153,7 +240,10 @@ import Layout from '@/components/Layout/Layout.vue';
 import Subheader from '@/components/Views/CardPage/Subheader.vue';
 import SidebarMin from '@/components/Views/CardPage/SidebarMin.vue';
 import PersonCard from '@/components/Views/CardPage/PersonCard.vue';
+import FriendCard from '@/components/Views/CardPage/FriendCard.vue';
 import NewsCard from '@/components/Views/CardPage/NewsCard.vue';
+import ProjectCard from '@/components/Views/CardPage/ProjectCard.vue';
+import Close from '@/components/Icons/Close.vue';
 
 export default {
   name: 'CardPage',
@@ -163,12 +253,16 @@ export default {
     Subheader,
     SidebarMin,
     PersonCard,
+    FriendCard,
     NewsCard,
+    ProjectCard,
+    Close,
   },
 
   data() {
     return {
       test: null,
+      isTestVisible: true,
       isSidebarInSubheaderVisible: null,
       mock: [
         { id: 1, name: 'Test 1' },
@@ -186,6 +280,12 @@ export default {
         { id: 13, name: 'Test 13' },
         { id: 14, name: 'Test 14' },
         { id: 15, name: 'Test 15' },
+        { id: 16, name: 'Test 16' },
+        { id: 17, name: 'Test 17' },
+        { id: 18, name: 'Test 18' },
+        { id: 19, name: 'Test 19' },
+        { id: 20, name: 'Test 20' },
+        { id: 21, name: 'Test 21' },
       ],
       swiper1Option: {
         breakpoints: {
@@ -203,7 +303,7 @@ export default {
           },
           320: {
             spaceBetween: 12,
-            slidesPerView: 2.2,
+            slidesPerView: 2.5,
           },
         },
         navigation: {
@@ -212,6 +312,30 @@ export default {
         },
       },
       swiper2Option: {
+        breakpoints: {
+          1777: {
+            spaceBetween: 12,
+            slidesPerView: 13,
+          },
+          1217: {
+            spaceBetween: 12,
+            slidesPerView: 9,
+          },
+          768: {
+            spaceBetween: 6,
+            slidesPerView: 6.9,
+          },
+          320: {
+            spaceBetween: 8,
+            slidesPerView: 4,
+          },
+        },
+        navigation: {
+          prevEl: '.card-page__slider--2-prev',
+          nextEl: '.card-page__slider--2-next',
+        },
+      },
+      swiper3Option: {
         breakpoints: {
           1777: {
             spaceBetween: 32,
@@ -223,16 +347,40 @@ export default {
           },
           768: {
             spaceBetween: 24,
-            slidesPerView: 2.2,
+            slidesPerView: 2.3,
           },
           320: {
             spaceBetween: 12,
-            slidesPerView: 1.2,
+            slidesPerView: 1.25,
           },
         },
         navigation: {
-          prevEl: '.card-page__slider--2-prev',
-          nextEl: '.card-page__slider--2-next',
+          prevEl: '.card-page__slider--3-prev',
+          nextEl: '.card-page__slider--3-next',
+        },
+      },
+      swiper4Option: {
+        breakpoints: {
+          1777: {
+            spaceBetween: 20,
+            slidesPerView: 6,
+          },
+          1217: {
+            spaceBetween: 16,
+            slidesPerView: 5 ,
+          },
+          768: {
+            spaceBetween: 12,
+            slidesPerView: 3.3,
+          },
+          320: {
+            spaceBetween: 6,
+            slidesPerView: 2.4,
+          },
+        },
+        navigation: {
+          prevEl: '.card-page__slider--4-prev',
+          nextEl: '.card-page__slider--4-next',
         },
       },
     };
@@ -264,10 +412,16 @@ export default {
     },
 
     checkScrool() {
-      const position = this.$refs.cardPageSidebar.getBoundingClientRect().bottom;
+      if (this.$refs.cardPageSidebar) {
+        const position = this.$refs.cardPageSidebar.getBoundingClientRect().bottom;
 
-      if (position < 81) this.isSidebarInSubheaderVisible = true;
-      else this.isSidebarInSubheaderVisible = false;
+        if (position < 81) this.isSidebarInSubheaderVisible = true;
+        else this.isSidebarInSubheaderVisible = false;
+      }
+    },
+
+    toggleTest() {
+      this.isTestVisible = !this.isTestVisible;
     },
   },
 };
@@ -356,6 +510,10 @@ $gallery__height--xs: 133.155vw;
     }
 
     &--2 {
+      max-height: 114px;
+    }
+
+    &--3 {
       max-height: 531px;
 
       @include lg {
@@ -372,6 +530,26 @@ $gallery__height--xs: 133.155vw;
 
       @include xs {
         height: 116.6vw;
+      }
+    }
+
+    &--4 {
+      max-height: 446px;
+
+      @include lg {
+        height: 23.24vw;
+      }
+
+      @include md {
+        height: 33.87vw;
+      }
+
+      @include sm {
+        height: 55.75vw;
+      }
+
+      @include xs {
+        height: 100.65vw;
       }
     }
   }
@@ -457,14 +635,24 @@ $gallery__height--xs: 133.155vw;
 
     &--7,
     &--8,
-    &--9 {
+    &--9,
+    &--10,
+    &--11,
+    &--12 {
       @extend %section__margin;
+    }
+
+    &--10 {
+      .card-page__test-block {
+        @include lg {
+          max-width: 55%;
+        }
+      }
     }
   }
 
   &__test {
-    padding-left: $gutter2;
-    padding-right: $gutter2;
+    z-index: $layouts__fixed + 500;
     background: rgba(125, 125, 125, 0.2);
     position: fixed;
     z-index: $layouts__fixed + 100;
@@ -472,11 +660,12 @@ $gallery__height--xs: 133.155vw;
     right: 20vw;
     bottom: 44vh;
     text-align: center;
-    padding-top: $gutter * 2;
-    padding-bottom: $gutter * 2;
+    padding: $gutter * 2;
+    transition: all 0.5s ease-out;
     @include text($font-size--normal, $font-weight--regular);
 
     @include xs {
+      bottom: 34vh;
       @include text($font-size--small, $font-weight--regular);
     }
 
@@ -486,6 +675,35 @@ $gallery__height--xs: 133.155vw;
 
       @include xs {
         @include text($font-size--small, $font-weight--bold);
+      }
+    }
+
+    a {
+      position: absolute;
+      top: $gutter / 4;
+      right: $gutter / 4;
+      display: inline-block;
+      @include size(($gutter * 2), ($gutter * 2));
+    }
+
+    .icon {
+      color: $colors__primary;
+      @include size(($gutter * 2), ($gutter * 2));
+    }
+
+    &--hidden {
+      left: auto;
+      top: auto;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      @include size(($gutter2 * 2.5), ($gutter2 * 2.5));
+
+      a {
+        position: static;
       }
     }
   }
